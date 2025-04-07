@@ -8,7 +8,7 @@
 <body class="zf-backgroundBg">
 <!-- Change or deletion of the name attributes in the input tag will lead to empty values on record submission-->
 <div class="zf-templateWidth">
-    <form action='https://forms.zohopublic.eu/jeremiasacortespro1/form/EventRegistration/formperma/sXPxrDvbIQPrXTrcvBJ02Hp6AXhnjsTdpvyubZ0EVjM/htmlRecords/submit'
+    <form id="miFormulario" action='https://forms.zohopublic.eu/jeremiasacortespro1/form/EventRegistration/formperma/sXPxrDvbIQPrXTrcvBJ02Hp6AXhnjsTdpvyubZ0EVjM/htmlRecords/submit'
           name='form' method='POST' onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
           accept-charset='UTF-8' enctype='multipart/form-data' id='form'><input type="hidden" name="zf_referrer_name"
                                                                                 value="">
@@ -457,6 +457,33 @@ var zf_MonthYearRegex = new RegExp("^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|No
 var zf_MandArray = ["Name_First", "Number", "Email", "PhoneNumber_countrycode", "Address_AddressLine1", "Address_City", "Address_Region", "Address_ZipCode", "Address_Country", "Checkbox"];
 var zf_FieldArray = ["Name_First", "Name_Last", "Name_Middle", "Number", "Email", "PhoneNumber_countrycode", "Address_AddressLine1", "Address_City", "Address_Region", "Address_ZipCode", "Address_Country", "Dropdown", "Checkbox"];
 var isSalesIQIntegrationEnabled = false;
-var salesIQFieldsArray = [];</script>
+var salesIQFieldsArray = [];
+
+document.getElementById('miFormulario').addEventListener('submit', function(e) {
+	e.preventDefault();
+
+	const formData = new FormData(this);
+	const data = new URLSearchParams(formData);
+
+	fetch("https://forms.zohopublic.com/tuusuario/form/NombreDelFormulario/webhook", {
+		method: "POST",
+		body: data,
+		headers: {
+			"Content-Type": "application/x-www-form-urlencoded"
+		}
+	})
+			.then(response => {
+				if (response.ok) {
+					alert("Formulario enviado correctamente");
+				} else {
+					alert("Hubo un error al enviar el formulario");
+				}
+			})
+			.catch(error => {
+				alert("Error de red");
+				console.error(error);
+			});
+});
+</script>
 </body>
 </html>
