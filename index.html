@@ -1,156 +1,462 @@
-<!DOCTYPE html>
-<html lang="es">
-
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mystyle.css">
-    <script src="node_modules/bootstrap/dist/js/bootstrap.js" rel="JavaScript"></script>
-    <link rel="shortcut icon" href="img/icon.png">
+    <title>Event Registration</title>
+    <link href="css/form.css" rel="stylesheet" type="text/css">
+    <script src="js/validation.js"></script>
 </head>
-
-<body>
-    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
-        <form class="row g-3 mt-3 needs-validation form-register" method="post" 
-        action="https://script.google.com/macros/s/AKfycbzgiOmkrUn6wI24HFzwAHuJKS7WvRJx67dWp08yj1jG4Ypr5UYOInZBWQ1W2NmLP8eG/exec" 
-        name="contact-form" novalidate>
-            <div class="col-12">
-                <h1>Registro sorteador</h1>
-            </div>
-            <div class="col-6">
-                <label for="correoInput" class="form-label">
-                    Email
-                </label>
-                <input type="email" class="form-control controls" id="correoInput" name="Correo" placeholder="Correo" required>
-
-                <div class="valid-feedback">
-                    Correo válido
-                </div>
-                <div class="invalid-feedback">
-                    Es necesario poner el correo
-                </div>
-            </div>
-
-            <div class="col-6">
-                <label for="nombreInput" class="form-label">
-                    Nombre de usuario
-                </label>
-                <input type="text" class="form-control controls" name="Usuario" id="nombreInput" placeholder="Usuario"
-                    required>
-                <div class="valid-feedback">
-                    Nombre de usuario disponible
-                </div>
-                <div class="invalid-feedback">
-                    Nombre de usuario no disponible
-                </div>
-            </div>
-
-            <div class="col-6">
-                <label for="contrasenaInput" class="form-label">
-                    Contraseña
-                </label>
-                <input type="password" class="form-control controls" name="Contraseña" id="contrasenaInput"
-                    placeholder="Contraseña" required>
-            </div>
-
-            <div class="col-6">
-                <label for="direccionInput" class="form-label">
-                    Dirección
-                </label>
-                <input type="text" class="form-control controls" id="direccionInput" name="Direccion" placeholder="Dirección" required>
-            </div>
-
-            <div class="col-12">
-                <label for="modeloMovilInput" class="form-label">Dispositivo en el que desea participar en el sorteo</label>
-                <select class="form-select" id="dispositivoSeleccionado" name="Dispositivo de sorteo" aria-label="Seleccione su modelo de dispositivo móvil" novalidate>
-                    <option selected>Ninguno</option>
-                    <option value="iPhone 15 Pro Max 8GB/256GB">iPhone 15 Pro Max 8GB/256GB</option>
-                    <option value="Red Nubia Magic 8S Pro 16GB/512GB">Red Nubia Magic 8S Pro 16GB/512GB</option>
-                    <option value="Xiaomi 14 Pro 16GB/1TB">Xiaomi 14 Pro 16GB/1TB</option>
-                  </select>
-            </div>
-
-            <div class="col-6">
-                <label for="ciudadInput" class="form-label">
-                    Ciudad
-                </label>
-                <input type="text" class="form-control controls" name="Ciudad" id="ciudadInput" placeholder="Ciudad" required>
-            </div>
-
-            <div class="col-6">
-                <label for="codigoPostalInput" class="form-label">
-                    Código postal
-                </label>
-                <input type="text" class="form-control controls" name="Codigo Postal" id="codigoPostalInput" placeholder="Código postal" required>
-            </div>
-
-            <div class="col-6">
-                <label for="paisInput" class="form-label">
-                    País
-                </label>
-                <input type="text" class="form-control controls" name="Pais" id="paisInput" placeholder="País" required>
-            </div>
-
-            <div class="col-6">
-                <label for="edadInput" class="form-label">
-                    Edad
-                </label>
-                <input type="number" class="form-control controls" name="Edad" id="edadInput" placeholder="Edad" required>
-            </div>
-
-            <div class="col-12">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input controls" name="Terminos" id="checkTerminos" required checked>
-                    <label for="checkTerminos" class="form-check-label">
-                        Acepto los términos y condiciones
-                    </label >
-                </div>
-            </div>
-
-            <div class="col-12">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input controls" name="Publicidad" id="checkPublicidad">
-                    <label for="checkPublicidad" class="form-check-label">
-                        Recibir alertas de sorteos por email
-                    </label >
-                </div>
-            </div>
-
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary button" onclick="validarFormulario()">
-                    Regístrate
-                </button>
-            </div>
-            <p><a href="#">Ya tengo cuenta</a></p>
-        </form>
-
-        
-    </div>
-    
-
-    <script src="sheets.js">
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (() => {
-            'use strict'
-
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            const forms = document.querySelectorAll('.needs-validation')
-
-            // Loop over them and prevent submission
-            Array.from(forms).forEach(form => {
-                form.addEventListener('submit', event => {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add('was-validated')
-                }, false)
-            })
-        })()
-    </script>
+<body class="zf-backgroundBg">
+<!-- Change or deletion of the name attributes in the input tag will lead to empty values on record submission-->
+<div class="zf-templateWidth">
+    <form action='https://forms.zohopublic.eu/jeremiasacortespro1/form/EventRegistration/formperma/sXPxrDvbIQPrXTrcvBJ02Hp6AXhnjsTdpvyubZ0EVjM/htmlRecords/submit'
+          name='form' method='POST' onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
+          accept-charset='UTF-8' enctype='multipart/form-data' id='form'><input type="hidden" name="zf_referrer_name"
+                                                                                value="">
+        <!-- To Track referrals , place the referrer name within the " " in the above hidden input field -->
+        <input type="hidden" name="zf_redirect_url" value="">
+        <!-- To redirect to a specific page after record submission , place the respective url within the " " in the above hidden input field -->
+        <input type="hidden" name="zc_gad" value="">
+        <!-- If GCLID is enabled in Zoho CRM Integration, click details of AdWords Ads will be pushed to Zoho CRM -->
+        <div class="zf-templateWrapper"><!---------template Header Starts Here---------->
+            <ul class="zf-tempHeadBdr">
+                <li class="zf-tempHeadContBdr"><h2 class="zf-frmTitle"><em>Event Registration</em></h2>
+                    <p class="zf-frmDesc">Register with us to get more details.</p>
+                    <div class="zf-clearBoth"></div>
+                </li>
+            </ul><!---------template Header Ends Here---------->
+            <!---------template Container Starts Here---------->
+            <div class="zf-subContWrap zf-topAlign">
+                <ul>
+                    <!---------Name Starts Here---------->
+                    <li class="zf-tempFrmWrapper zf-name zf-namelarge"><label class="zf-labelName">
+                        Nombre y Apellidos
+                        <em class="zf-important">*</em>
+                    </label>
+                        <div
+                                class="zf-tempContDiv zf-twoType"
+                        >
+                            <div
+                                    class="zf-nameWrapper"
+                            >
+<span> <input type="text" maxlength="255" name="Name_First" fieldType=7 placeholder=""/> <label>Nombre</label>
+ </span>
+                                </span> </span>
+                                <span> <input type="text" maxlength="255" name="Name_Last" fieldType=7 placeholder=""/> <label>Apellidos</label>
+ </span>
+                                </span> </span>
+                                </span>
+                                <div class="zf-clearBoth"></div>
+                            </div>
+                            <p id="Name_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
+                        </div>
+                        <div class="zf-clearBoth"></div>
+                    </li><!---------Name Ends Here---------->
+                    <!---------Number Starts Here---------->
+                    <li class="zf-tempFrmWrapper zf-large"><label class="zf-labelName">
+                        Edad
+                        <em class="zf-important">*</em>
+                    </label>
+                        <div class="zf-tempContDiv">
+                            <span> <input type="text" name="Number" checktype="c2" value="" maxlength="18"
+                                          placeholder=""/></span>
+                            <p id="Number_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
+                        </div>
+                        <div class="zf-clearBoth"></div>
+                    </li><!---------Number Ends Here---------->
+                    <!---------Email Starts Here---------->
+                    <li class="zf-tempFrmWrapper zf-large"><label class="zf-labelName">
+                        Correo
+                        <em class="zf-important">*</em>
+                    </label>
+                        <div class="zf-tempContDiv">
+                            <span> <input fieldType=9 type="text" maxlength="255" name="Email" checktype="c5" value=""
+                                          placeholder=""/></span>
+                            <p id="Email_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
+                        </div>
+                        <div class="zf-clearBoth"></div>
+                    </li><!---------Email Ends Here---------->
+                    <!---------Phone Starts Here---------->
+                    <li class="zf-tempFrmWrapper zf-large"><label class="zf-labelName">
+                        Tel&eacute;fono
+                        <em class="zf-important">*</em>
+                    </label>
+                        <div class="zf-tempContDiv zf-phonefld">
+                            <div
+                                    class="zf-phwrapper zf-phNumber"
+                            >
+<span> <input type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" maxlength="20" checktype="c7" value=""
+              phoneFormat="1" isCountryCodeEnabled=false fieldType="11" id="international_PhoneNumber_countrycode"
+              valType="number" phoneFormatType="2" placeholder=""/>
+<label>Number</label> </span>
+                                <div class="zf-clearBoth"></div>
+                            </div>
+                            <p id="PhoneNumber_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
+                        </div>
+                        <div class="zf-clearBoth"></div>
+                    </li><!---------Phone Ends Here---------->
+                    <!--address-->
+                    <!---------Address Starts Here---------->
+                    <li class="zf-tempFrmWrapper zf-address zf-addrlarge "><label class="zf-labelName">
+                        Direcci&oacute;n
+                        <em class="zf-important">*</em>
+                    </label>
+                        <div class="zf-tempContDiv zf-address">
+                            <div class="zf-addrCont">
+<span class="zf-addOne"> <input type="text" maxlength="255" name="Address_AddressLine1" checktype="c1" placeholder=""/>
+<label>Calle</label>
+ </span>
+                                <span class="zf-flLeft zf-addtwo"> <input type="text" maxlength="255"
+                                                                          name="Address_City" checktype="c1"
+                                                                          placeholder=""/>
+<label>Ciudad</label>
+ </span>
+                                <span class="zf-flLeft zf-addtwo"> <input type="text" maxlength="255"
+                                                                          name="Address_Region" checktype="c1"
+                                                                          placeholder=""/>
+<label>Region</label>
+ </span>
+                                <span class="zf-flLeft zf-addtwo"> <input type="text" maxlength="255"
+                                                                          name="Address_ZipCode" checktype="c1"
+                                                                          placeholder=""/>
+<label>C&oacute;digo postal</label>
+ </span>
+                                <span class="zf-flLeft zf-addtwo"> <select class="zf-form-sBox" name="Address_Country"
+                                                                           checktype="c1">
+<option value="-Select-">-Select-</option> 
+			<option>&Aring;land Islands</option>
+			<option>Afghanistan</option>
+			<option>Akrotiri</option>
+			<option>Albania</option>
+			<option>Algeria</option>
+			<option>American Samoa</option>
+			<option>Andorra</option>
+			<option>Angola</option>
+			<option>Anguilla</option>
+			<option>Antarctica</option>
+			<option>Antigua and Barbuda</option>
+			<option>Argentina</option>
+			<option>Armenia</option>
+			<option>Aruba</option>
+			<option>Ashmore and Cartier Islands</option>
+			<option>Australia</option>
+			<option>Austria</option>
+			<option>Azerbaijan</option>
+			<option>Bahrain</option>
+			<option>Bangladesh</option>
+			<option>Barbados</option>
+			<option>Bassas Da India</option>
+			<option>Belarus</option>
+			<option>Belgium</option>
+			<option>Belize</option>
+			<option>Benin</option>
+			<option>Bermuda</option>
+			<option>Bhutan</option>
+			<option>Bolivia</option>
+			<option>Bosnia and Herzegovina</option>
+			<option>Botswana</option>
+			<option>Bouvet Island</option>
+			<option>Brazil</option>
+			<option>British Indian Ocean Territory</option>
+			<option>British Virgin Islands</option>
+			<option>Brunei</option>
+			<option>Bulgaria</option>
+			<option>Burkina Faso</option>
+			<option>Burma</option>
+			<option>Burundi</option>
+			<option>Cambodia</option>
+			<option>Cameroon</option>
+			<option>Canada</option>
+			<option>Cape Verde</option>
+			<option>Caribbean Netherlands</option>
+			<option>Cayman Islands</option>
+			<option>Central African Republic</option>
+			<option>Chad</option>
+			<option>Chile</option>
+			<option>China</option>
+			<option>Christmas Island</option>
+			<option>Clipperton Island</option>
+			<option>Cocos &#x28;Keeling&#x29; Islands</option>
+			<option>Colombia</option>
+			<option>Comoros</option>
+			<option>Cook Islands</option>
+			<option>Coral Sea Islands</option>
+			<option>Costa Rica</option>
+			<option>Cote D&#x27;Ivoire</option>
+			<option>Croatia</option>
+			<option>Cuba</option>
+			<option>Cura&ccedil;ao</option>
+			<option>Cyprus</option>
+			<option>Czech Republic</option>
+			<option>Democratic Republic of the Congo</option>
+			<option>Denmark</option>
+			<option>Dhekelia</option>
+			<option>Djibouti</option>
+			<option>Dominica</option>
+			<option>Dominican Republic</option>
+			<option>Ecuador</option>
+			<option>Egypt</option>
+			<option>El Salvador</option>
+			<option>Equatorial Guinea</option>
+			<option>Eritrea</option>
+			<option>Estonia</option>
+			<option>Ethiopia</option>
+			<option>Europa Island</option>
+			<option>Falkland Islands &#x28;Islas Malvinas&#x29;</option>
+			<option>Faroe Islands</option>
+			<option>Federated States of Micronesia</option>
+			<option>Fiji</option>
+			<option>Finland</option>
+			<option>France</option>
+			<option>French Guiana</option>
+			<option>French Polynesia</option>
+			<option>French Southern and Antarctic Lands</option>
+			<option>Gabon</option>
+			<option>Gaza Strip</option>
+			<option>Georgia</option>
+			<option>Germany</option>
+			<option>Ghana</option>
+			<option>Gibraltar</option>
+			<option>Glorioso Islands</option>
+			<option>Greece</option>
+			<option>Greenland</option>
+			<option>Grenada</option>
+			<option>Guadeloupe</option>
+			<option>Guam</option>
+			<option>Guatemala</option>
+			<option>Guernsey</option>
+			<option>Guinea</option>
+			<option>Guinea-bissau</option>
+			<option>Guyana</option>
+			<option>Haiti</option>
+			<option>Heard Island and Mcdonald Islands</option>
+			<option>Holy See &#x28;Vatican City&#x29;</option>
+			<option>Honduras</option>
+			<option>Hong Kong</option>
+			<option>Hungary</option>
+			<option>Iceland</option>
+			<option>India</option>
+			<option>Indonesia</option>
+			<option>Iran</option>
+			<option>Iraq</option>
+			<option>Ireland</option>
+			<option>Isle of Man</option>
+			<option>Israel</option>
+			<option>Italy</option>
+			<option>Jamaica</option>
+			<option>Jan Mayen</option>
+			<option>Japan</option>
+			<option>Jersey</option>
+			<option>Jordan</option>
+			<option>Juan De Nova Island</option>
+			<option>Kazakhstan</option>
+			<option>Kenya</option>
+			<option>Kiribati</option>
+			<option>Kosovo</option>
+			<option>Kuwait</option>
+			<option>Kyrgyzstan</option>
+			<option>Laos</option>
+			<option>Latvia</option>
+			<option>Lebanon</option>
+			<option>Lesotho</option>
+			<option>Liberia</option>
+			<option>Libya</option>
+			<option>Liechtenstein</option>
+			<option>Lithuania</option>
+			<option>Luxembourg</option>
+			<option>Macau</option>
+			<option>Macedonia</option>
+			<option>Madagascar</option>
+			<option>Malawi</option>
+			<option>Malaysia</option>
+			<option>Maldives</option>
+			<option>Mali</option>
+			<option>Malta</option>
+			<option>Marshall Islands</option>
+			<option>Martinique</option>
+			<option>Mauritania</option>
+			<option>Mauritius</option>
+			<option>Mayotte</option>
+			<option>Mexico</option>
+			<option>Moldova</option>
+			<option>Monaco</option>
+			<option>Mongolia</option>
+			<option>Montenegro</option>
+			<option>Montserrat</option>
+			<option>Morocco</option>
+			<option>Mozambique</option>
+			<option>Myanmar</option>
+			<option>Namibia</option>
+			<option>Nauru</option>
+			<option>Navassa Island</option>
+			<option>Nepal</option>
+			<option>Netherlands Antilles</option>
+			<option>Netherlands</option>
+			<option>New Caledonia</option>
+			<option>New Zealand</option>
+			<option>Nicaragua</option>
+			<option>Niger</option>
+			<option>Nigeria</option>
+			<option>Niue</option>
+			<option>Norfolk Island</option>
+			<option>North Korea</option>
+			<option>Northern Mariana Islands</option>
+			<option>Norway</option>
+			<option>Oman</option>
+			<option>Pakistan</option>
+			<option>Palau</option>
+			<option>Palestine</option>
+			<option>Panama</option>
+			<option>Papua New Guinea</option>
+			<option>Paracel Islands</option>
+			<option>Paraguay</option>
+			<option>Peru</option>
+			<option>Philippines</option>
+			<option>Pitcairn Islands</option>
+			<option>Poland</option>
+			<option>Portugal</option>
+			<option>Puerto Rico</option>
+			<option>Qatar</option>
+			<option>Republic of the Congo</option>
+			<option>Reunion</option>
+			<option>Romania</option>
+			<option>Russia</option>
+			<option>Rwanda</option>
+			<option>Saint Barth&Atilde;&copy;lemy</option>
+			<option>Saint Helena</option>
+			<option>Saint Kitts and Nevis</option>
+			<option>Saint Lucia</option>
+			<option>Saint Martin</option>
+			<option>Saint Pierre and Miquelon</option>
+			<option>Saint Vincent and the Grenadines</option>
+			<option>Samoa</option>
+			<option>San Marino</option>
+			<option>Sao Tome and Principe</option>
+			<option>Saudi Arabia</option>
+			<option>Senegal</option>
+			<option>Serbia</option>
+			<option>Seychelles</option>
+			<option>Sierra Leone</option>
+			<option>Singapore</option>
+			<option>Sint Maarten</option>
+			<option>Slovakia</option>
+			<option>Slovenia</option>
+			<option>Solomon Islands</option>
+			<option>Somalia</option>
+			<option>South Africa</option>
+			<option>South Georgia and the South Sandwich Islands</option>
+			<option>South Korea</option>
+			<option>South Sudan</option>
+			<option>Spain</option>
+			<option>Spratly Islands</option>
+			<option>Sri Lanka</option>
+			<option>Sudan</option>
+			<option>Suriname</option>
+			<option>Svalbard</option>
+			<option>Swaziland</option>
+			<option>Sweden</option>
+			<option>Switzerland</option>
+			<option>Syria</option>
+			<option>Taiwan</option>
+			<option>Tajikistan</option>
+			<option>Tanzania</option>
+			<option>Thailand</option>
+			<option>The Bahamas</option>
+			<option>The Gambia</option>
+			<option>Timor-leste</option>
+			<option>Togo</option>
+			<option>Tokelau</option>
+			<option>Tonga</option>
+			<option>Trinidad and Tobago</option>
+			<option>Tromelin Island</option>
+			<option>Tunisia</option>
+			<option>Turkey</option>
+			<option>Turkmenistan</option>
+			<option>Turks and Caicos Islands</option>
+			<option>Tuvalu</option>
+			<option>Uganda</option>
+			<option>Ukraine</option>
+			<option>United Arab Emirates</option>
+			<option>United Kingdom</option>
+			<option>United States</option>
+			<option>Uruguay</option>
+			<option>Uzbekistan</option>
+			<option>Vanuatu</option>
+			<option>Venezuela</option>
+			<option>Vietnam</option>
+			<option>Virgin Islands</option>
+			<option>Wake Island</option>
+			<option>Wallis and Futuna</option>
+			<option>West Bank</option>
+			<option>Western Sahara</option>
+			<option>Yemen</option>
+			<option>Zambia</option>
+			<option>Zimbabwe</option>
+</select>
+<label>Pa&iacute;s</label>
+ </span>
+                                <div class="zf-clearBoth"></div>
+                                <p id="Address_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
+                            </div>
+                        </div>
+                        <div class="zf-eclearBoth"></div>
+                    </li><!---------Address Ends Here---------->
+                    <!---------Dropdown Starts Here---------->
+                    <li class="zf-tempFrmWrapper zf-large"><label class="zf-labelName">
+                        Dispositivo en el que desea participar
+                    </label>
+                        <div class="zf-tempContDiv">
+                            <select class="zf-form-sBox" name="Dropdown" checktype="c1">
+                                <option selected="true" value="-Select-">-Select-</option>
+                                <option value="Ninguno" selected>Ninguno</option>
+                                <option value="iPhone&#x20;15&#x20;Pro&#x20;Max&#x20;8GB&#x2f;256GB">iPhone 15 Pro Max
+                                    8GB&#x2f;256GB
+                                </option>
+                                <option value="Red&#x20;Nubia&#x20;Magic&#x20;8S&#x20;Pro&#x20;16GB&#x2f;512GB">Red
+                                    Nubia Magic 8S Pro 16GB&#x2f;512GB
+                                </option>
+                                <option value="Xiaomi&#x20;14&#x20;Pro&#x20;16GB&#x2f;1TB">Xiaomi 14 Pro 16GB&#x2f;1TB
+                                </option>
+                            </select>
+                            <p id="Dropdown_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
+                        </div>
+                        <div class="zf-clearBoth"></div>
+                    </li><!---------Dropdown Ends Here---------->
+                    <!---------Checkbox Starts Here---------->
+                    <li class="zf-checkbox zf-tempFrmWrapper zf-oneColumns"><label class="zf-labelName">Condiciones
+                        <em class="zf-important">*</em>
+                    </label>
+                        <div class="zf-tempContDiv">
+                            <div class="zf-overflow">
+<span class="zf-multiAttType"> 
+<input class="zf-checkBoxType" type="checkbox" id="Checkbox_1" name="Checkbox" checktype="c1" checked
+       value="Acepto&#x20;los&#x20;t&eacute;rminos&#x20;y&#x20;condiciones"/>
+<label for="Checkbox_1"
+       class="zf-checkChoice">Acepto&#x20;los&#x20;t&eacute;rminos&#x20;y&#x20;condiciones</label> </span>
+                                <span class="zf-multiAttType">
+<input class="zf-checkBoxType" type="checkbox" id="Checkbox_2" name="Checkbox" checktype="c1" checked
+       value="Recibir&#x20;alertas&#x20;de&#x20;sorteos&#x20;por&#x20;email"/>
+<label for="Checkbox_2"
+       class="zf-checkChoice">Recibir&#x20;alertas&#x20;de&#x20;sorteos&#x20;por&#x20;email</label> </span>
+                                <div class="zf-clearBoth"></div>
+                            </div>
+                            <p id="Checkbox_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
+                        </div>
+                        <div class="zf-clearBoth"></div>
+                    </li><!---------Checkbox Ends Here---------->
+                </ul>
+            </div><!---------template Container Starts Here---------->
+            <ul>
+                <li class="zf-fmFooter">
+                    <button class="zf-submitColor">Submit</button>
+                </li>
+            </ul>
+        </div><!-- 'zf-templateWrapper' ends --></form>
+</div><!-- 'zf-templateWidth' ends -->
+<script type="text/javascript">var zf_DateRegex = new RegExp("^(([0][1-9])|([1-2][0-9])|([3][0-1]))[-](Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[-](?:(?:19|20)[0-9]{2})$");
+var zf_MonthYearRegex = new RegExp("^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[-](?:(?:19|20)[0-9]{2})$");
+var zf_MandArray = ["Name_First", "Number", "Email", "PhoneNumber_countrycode", "Address_AddressLine1", "Address_City", "Address_Region", "Address_ZipCode", "Address_Country", "Checkbox"];
+var zf_FieldArray = ["Name_First", "Name_Last", "Name_Middle", "Number", "Email", "PhoneNumber_countrycode", "Address_AddressLine1", "Address_City", "Address_Region", "Address_ZipCode", "Address_Country", "Dropdown", "Checkbox"];
+var isSalesIQIntegrationEnabled = false;
+var salesIQFieldsArray = [];</script>
 </body>
-
 </html>
