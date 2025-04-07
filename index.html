@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mystyle.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js" rel="JavaScript"></script>
+    <link rel="shortcut icon" href="img/icon.png">
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <form class="row g-3 mt-3 needs-validation form-register" method="post" 
+        action="https://script.google.com/macros/s/AKfycbzgiOmkrUn6wI24HFzwAHuJKS7WvRJx67dWp08yj1jG4Ypr5UYOInZBWQ1W2NmLP8eG/exec" 
+        name="contact-form" novalidate>
+            <div class="col-12">
+                <h1>Registro sorteador</h1>
+            </div>
+            <div class="col-6">
+                <label for="correoInput" class="form-label">
+                    Email
+                </label>
+                <input type="email" class="form-control controls" id="correoInput" name="Correo" placeholder="Correo" required>
+
+                <div class="valid-feedback">
+                    Correo válido
+                </div>
+                <div class="invalid-feedback">
+                    Es necesario poner el correo
+                </div>
+            </div>
+
+            <div class="col-6">
+                <label for="nombreInput" class="form-label">
+                    Nombre de usuario
+                </label>
+                <input type="text" class="form-control controls" name="Usuario" id="nombreInput" placeholder="Usuario"
+                    required>
+                <div class="valid-feedback">
+                    Nombre de usuario disponible
+                </div>
+                <div class="invalid-feedback">
+                    Nombre de usuario no disponible
+                </div>
+            </div>
+
+            <div class="col-6">
+                <label for="contrasenaInput" class="form-label">
+                    Contraseña
+                </label>
+                <input type="password" class="form-control controls" name="Contraseña" id="contrasenaInput"
+                    placeholder="Contraseña" required>
+            </div>
+
+            <div class="col-6">
+                <label for="direccionInput" class="form-label">
+                    Dirección
+                </label>
+                <input type="text" class="form-control controls" id="direccionInput" name="Direccion" placeholder="Dirección" required>
+            </div>
+
+            <div class="col-12">
+                <label for="modeloMovilInput" class="form-label">Dispositivo en el que desea participar en el sorteo</label>
+                <select class="form-select" id="dispositivoSeleccionado" name="Dispositivo de sorteo" aria-label="Seleccione su modelo de dispositivo móvil" novalidate>
+                    <option selected>Ninguno</option>
+                    <option value="iPhone 15 Pro Max 8GB/256GB">iPhone 15 Pro Max 8GB/256GB</option>
+                    <option value="Red Nubia Magic 8S Pro 16GB/512GB">Red Nubia Magic 8S Pro 16GB/512GB</option>
+                    <option value="Xiaomi 14 Pro 16GB/1TB">Xiaomi 14 Pro 16GB/1TB</option>
+                  </select>
+            </div>
+
+            <div class="col-6">
+                <label for="ciudadInput" class="form-label">
+                    Ciudad
+                </label>
+                <input type="text" class="form-control controls" name="Ciudad" id="ciudadInput" placeholder="Ciudad" required>
+            </div>
+
+            <div class="col-6">
+                <label for="codigoPostalInput" class="form-label">
+                    Código postal
+                </label>
+                <input type="text" class="form-control controls" name="Codigo Postal" id="codigoPostalInput" placeholder="Código postal" required>
+            </div>
+
+            <div class="col-6">
+                <label for="paisInput" class="form-label">
+                    País
+                </label>
+                <input type="text" class="form-control controls" name="Pais" id="paisInput" placeholder="País" required>
+            </div>
+
+            <div class="col-6">
+                <label for="edadInput" class="form-label">
+                    Edad
+                </label>
+                <input type="number" class="form-control controls" name="Edad" id="edadInput" placeholder="Edad" required>
+            </div>
+
+            <div class="col-12">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input controls" name="Terminos" id="checkTerminos" required checked>
+                    <label for="checkTerminos" class="form-check-label">
+                        Acepto los términos y condiciones
+                    </label >
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input controls" name="Publicidad" id="checkPublicidad">
+                    <label for="checkPublicidad" class="form-check-label">
+                        Recibir alertas de sorteos por email
+                    </label >
+                </div>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary button" onclick="validarFormulario()">
+                    Regístrate
+                </button>
+            </div>
+            <p><a href="#">Ya tengo cuenta</a></p>
+        </form>
+
+        
+    </div>
+    
+
+    <script src="sheets.js">
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+</body>
+
+</html>

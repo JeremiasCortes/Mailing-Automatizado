@@ -1,0 +1,66 @@
+*{
+    margin: 0 auto;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    /* background-image: url('img/fondo02.jpg'); */
+    background-image: linear-gradient(to bottom right, #2E1760, #7180B9); /* Colores en las esquinas superior izquierda y inferior derecha */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fija el fondo en su posición mientras se hace scroll */
+    /* Otras propiedades de estilo para el cuerpo si es necesario */
+    margin: 0;
+    padding: 0;
+}
+
+.form-register{
+    width: 450px;
+    background: #2e1760;
+    padding: 30px;
+    margin: 0px;
+    margin-top: 25px;
+    border-radius: 9px;
+    color: #dff3e4;
+    text-align: center;
+    box-shadow: 7px 13px 37px #2e1760;
+}
+
+.form-register h1{
+    font-size: 33px;
+}
+
+.container input{
+    background: #7180B9;
+    border-radius: 15px;
+    border-color: 1px solid #DFF3E4; 
+    color: #DFF3E4;
+}
+
+.container button{
+    font-size: 18px;
+    background: #dff3e4;
+    color: #2e1760;
+    border-color: #DFF3E4;
+}
+
+.container button:hover{
+    background-color: #7180B9;
+    border-color: #7180B9;
+}
+
+.form-register p {
+    height: 40px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.form-register a{
+    color: #DFF3E4;
+    text-decoration: none;
+}
+
+.form-register a:hover{
+    color: #7180B9;
+}
